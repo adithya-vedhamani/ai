@@ -183,7 +183,7 @@ select:hover {
 .profile-link {
   display: inline-block;
   position: relative; /* Set the position to relative */
-  bottom: 1000px; /* Adjust the distance from the bottom as needed */
+  bottom: 500px; /* Adjust the distance from the bottom as needed */
 }
 
 /* Style for the profile image */
