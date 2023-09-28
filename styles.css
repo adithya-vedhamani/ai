@@ -178,3 +178,23 @@ select:hover {
   from, to { border-color: transparent }
   50% { border-color: orange; }
 }
+
+/* Style for the profile link container */
+.profile-link {
+  display: inline-block;
+  position: relative; /* Set the position to relative */
+  bottom: 50px; /* Adjust the distance from the bottom as needed */
+}
+
+/* Style for the profile image */
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+/* Add hover effect to move the image up on hover */
+.profile-link:hover .profile-image {
+  transform: translateY(-20px); /* Adjust the vertical translation as needed */
+}
