@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Visualisation Tool
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css"> 
+        <link rel ="stylesheet" href="cyberpunk.css">
+       
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous">
+        </script> 
+        <!--FONT AWESOME-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
+            rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
+            crossorigin="anonymous"> 
+        <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython.min.js">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/brython@3.9.1/brython_stdlib.js">
+        </script>
+        <script type="text/python" src="main.py"></script> 
+
+        <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+        <link rel="manifest" href="image/site.webmanifest">
+    </head>
+    <body onload="brython()">
+      <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+      <div class="title-svg justify-content-center">
+        <svg width="1900" height="100">
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle" font-size="24">
+                Algorithm Visualizer
+            </text>
+        </svg>
+    </div>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light cyberpunk-tile fg-dark bg-cyan code-block">
+        <div class="container-fluid cyber-razor-bottom">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="dfs">Depth First Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="bfs">Breadth First Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="bms">British Museum Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="ora">Oracle Serach</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="ora_h">Oracle + Estimated Heuristics</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="astar">A Star Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="hc">Hill Climbing Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="bs">Beam Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="bb">Branch & Bound Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="bb-l">Branch & Bound + Extended List</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="bb-h">Branch & Bound + Estimated Heuristics</a>
+                  </li>
+                </ul>
+             
+              </div>
+            </div>
+          </nav>
+        <dialog id="weights-modal">
+            <form id="weights-form">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-auto">
+                        Enter a weight:
+                    </div>
+                    <div class="col-auto">
+                        <input id="weights-input" type="number" class="form-control" placeholder="1" min="1"
+                            required>
+                    </div>
+                    <div class="col-auto">
+                        <button id="weights-update" type="button" class="btn btn-primary">Update</button>
+                    </div>
+                    <div class="col-auto">
+                        <button id="weights-close" type="button" class="btn btn-danger">Close</button>
+                    </div>
+                </div>
+            </form>
+        </dialog>
+        
+
+            
+       <div class="cyber-glitch-2  " data-title="" style="color:black;">
+          <h4 id="paragh" ></h4>
+      </div>
+          
+      <div class="button-container">        
+                  <button type="button" class="cyber-button-small bg-blue fg-white" id="nodeAdd">
+                    Create Node
+                    <span class="glitchtext">Adding Node</span>
+                  </button>
+                     
+              <button type="button" class="cyber-button-small bg-red fg-white" id="nodeDelete">
+                Delete Node
+                <span class="glitchtext">Deleting Node</span>
+              </button>
+               
+                
+              <button type="button" class="cyber-button-small bg-blue fg-white" id="edgeAdd">
+                Create Edge
+                <span class="glitchtext">Adding Edge</span>
+              </button>
+              
+              <button type="button" class="cyber-button-small bg-red fg-white" id="edgeDelete">
+                Delete Edge
+                <span class="glitchtext">Deleting Edge</span>
+              </button>
+
+              <button type="button" class="cyber-button-small bg-blue fg-white" id="heuristics">
+                Heuristics
+                <span class="glitchtext">Updating Heuristics</span>
+              </button>
+
+              <button type="button" class="cyber-button-small bg-blue fg-white" id="weights">
+                Weight
+                <span class="glitchtext">Updating Weights</span>
+              </button>
+     
+            
+              <button  type="button" class="cyber-button-small bg-blue fg-white" id="setstart">
+                Source Node
+                <span class="glitchtext">Source Node is set</span>
+              </button>
+  
+                <button type="button" class="cyber-button-small bg-red fg-white" id="setgoal">
+                  Destination Node
+                  <span class="glitchtext">Destination Node is set</span>
+                </button>
+
+
+                <button type="button" class="cyber-button-small bg-green fg-white justify-content-center" id="solve">
+                  Solve
+                   <span class="glitchtext">Solving</span>
+                 </button>
+
+                <div class="select-div">
+                    <select id="Select">
+                        <option disabled selected>Saved Graph</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                    </select>
+                </div>
+                <div class="select-div">
+                    <select id="Speed">
+                        <option disabled selected>Speed</option>
+                        <option value="1x">1x</option>
+                        <option value="1.5x">1.5x</option>
+                        <option value="2x">2x</option>
+                    </select>
+                </div>
+  </div>
+             
+           
+                <style>
+                  .select-div {
+                    display: none;
+                  }
+                  .cyber-glitch-2 {
+    display: none;
+  }
+                </style>
+
+            <div class="right-child" id="right">
+                <div class="canvas-container">
+                    <!-- Manually set canvas dimensions -->
+                    <canvas id="canvas" width="2000" height="575"></canvas>
+                </div>
+            </div>
+            
+
+            <a href="https://github.com/adithya-vedhamani" style="display: inline-block; border-radius: 50%;">
+              <img src="adiii.png" alt="HTML tutorial" style="width: 100px; height: 100px; border-radius: 50%;">
+          </a>
+          
+</html>

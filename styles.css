@@ -1,0 +1,161 @@
+body{
+    margin : 10px;
+    overflow: hidden;
+    background-color:powderblue;
+}
+
+/* Initial styles for navbar links */
+.navbar.navbar-expand-lg.navbar-light.bg-light.cyberpunk-tile.fg-dark.bg-cyan.code-block {
+  margin-top: 80px; /* Adjust the margin-top value as needed */
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light.cyberpunk-tile.fg-dark.bg-cyan.code-block a.nav-link {
+  color: rgb(31, 100, 170);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: transparent; /* Initial background color */
+  transition: background-color 0.3s; /* Add a smooth transition effect */
+  justify-content: center;
+}
+
+/* Add styles for when links are clicked */
+.navbar.navbar-expand-lg.navbar-light.bg-light.cyberpunk-tile.fg-dark.bg-cyan.code-block a.nav-link:hover,
+.navbar.navbar-expand-lg.navbar-light.bg-light.cyberpunk-tile.fg-dark.bg-cyan.code-block a.nav-link:focus,
+.navbar.navbar-expand-lg.navbar-light.bg-light.cyberpunk-tile.fg-dark.bg-cyan.code-block a.nav-link:active {
+  background-color: rgb(147, 188, 255);
+  color: white; 
+/* Change to the highlight color you want */
+}
+
+
+#canvas{
+    /*background-color: yellow;*/
+    background-color: white;
+    /* border:1px solid #000000; */
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .button-container button {
+    flex-grow: 1;
+    margin-right: 10px; /* Adjust the margin as needed for spacing */
+  }
+  
+.container-1{
+    width: 100%;
+}
+
+
+#inner{
+    margin-bottom: 15px;
+}
+
+.select-div{
+    margin-top: 20px;
+    display:grid;
+    justify-content: center;
+    align-content: center;
+}
+select{
+	height: 40px;
+	border-radius: 20px;
+	border-color: rgb(24, 140, 24);
+	fill-opacity: 0;
+	background-color: rgb(255, 255, 255,0);
+}
+
+select:hover{
+	background-color: rgb(10, 185, 10);
+    color: whitesmoke;
+}
+
+/* Add styles for the footer and the row */
+.footer {
+    background: #333; /* Dark gray background */
+    padding: 10px 0; /* Adjust padding as needed */
+    font-family: 'Play', sans-serif;
+    text-align: center;
+  }
+  
+  .footer .row {
+    display: flex;
+    align-items: center; /* Center vertically within the row */
+    justify-content: center; /* Center horizontally within the row */
+    color: gray;
+  }
+  
+  .footer .row a {
+    text-decoration: none;
+    color: gray;
+    margin: 0 20px; /* Adjust the margin as needed for spacing between items */
+    font-size: 1.2em; /* Adjust the font size as needed */
+  }
+  
+  .footer .row img {
+    width: 5px; /* Adjust the width as needed for your small image */
+    margin-left: 10px; /* Add some spacing between the icons and the image */
+  }
+  
+  /* Style the copyright text separately */
+  .footer .row .copyright {
+    margin-right: 10px; /* Add spacing to the right of the copyright text */
+  }
+
+  
+  .title-svg {
+    font-family: 'Russo One', sans-serif;
+    position: absolute;
+    top: 0; /* Place the SVG at the top of the viewport */
+    width: 100%;
+    z-index: 1; /* Ensure the SVG is above other content */
+}
+
+/* Add styling to the SVG text */
+.title-svg svg text {
+    text-transform: uppercase;
+    animation: stroke 10s infinite alternate;
+    stroke-width: 2;
+    stroke: #365fa0;
+    font-size: 75px; /* Adjust the font size as needed */
+}
+  @keyframes stroke {
+    0%   {
+      fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1);
+      stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+    }
+    70%  {fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1); }
+    80%  {fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1); stroke-width: 3; }
+    100% {
+      fill: rgba(54,95,160,1); stroke: rgba(54,95,160,0); 
+      stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+    }
+  }
+  
+  
+  .typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
