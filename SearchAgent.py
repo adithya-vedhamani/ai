@@ -408,6 +408,67 @@ class SearchAgent:
         print(Final_result)
         return Final_result
     
+    def aostar(self, max_iterations=1000):
+        if self.goal == None or self.start == None or len(self.graph) < 2:
+            return None
+        self.no_enqueue = 0
+        # Extended list
+        visited = {key: 0 for key in self.graph}
+        self.queue = [[0, self.start]]
+        Final_result = []
+        flag = 0
+        goal_path = []
+        for _ in range(max_iterations):
+            if len(self.queue) == 0:
+                break
+            sub_list = []
+            current_path = self.queue.pop(0)
+            choosen_node = current_path[-1]
+            for child_node in self.graph[choosen_node].children.keys():
+                if child_node in current_path:
+                    continue
+                if visited[child_node] == 1:
+                    continue
+                else:
+                    visited[child_node] = 1
+                element = current_path + [child_node]
+                # Update weight
+                element[0] += self.graph[choosen_node].children[child_node]
+                # Modify heuristic (AO* modification)
+                prev_node = element[-2]
+                if prev_node != self.start:
+                    element[0] += (self.graph[child_node].heuristics - self.graph[prev_node].heuristics)
+                else:
+                    element[0] += self.graph[child_node].heuristics
+                priority_queue(self.queue, element)
+                sub_list.append(element)
+                self.no_enqueue += 1
+                if self.goal == child_node:
+                    flag = 1
+                    goal_path = element
+                    break
+            if len(sub_list) == 0:
+                continue
+            sub_list = sorted(sub_list)
+            sub_list2 = sub_list.copy()
+            for elem in sub_list2:
+                priority_queue(sub_list, elem)
+            Final_result.extend(sub_list)
+            if flag == 1:
+                break
+            print("-------------")
+        if flag != 1:
+            return None
+        index = Final_result.index(goal_path)
+        Final_result = Final_result[:index + 1]
+        print(Final_result)
+        return Final_result
+
+    #This code will perform AO* search with the specified max_iterations parameter and return a list of solutions.
+    # Instead of stopping the search when a goal is found, continue searching while periodically checking if the goal is still the best solution found so far.
+    # Maintain a list of solutions found during the search, and if a new solution with a lower cost is found, update the list.
+    # Use a parameter, such as a time limit or a number of iterations, to determine when to stop the search and return the best solution found so far.
+        
     def ora(self):
         if self.goal == None or self.start == None or len(self.graph) < 2:
             return None
@@ -513,6 +574,55 @@ class SearchAgent:
         Final_result = Final_result[:index + 1]
         print(Final_result)
         return Final_result
+    
+    def best(self):
+        if self.goal == None or self.start == None or len(self.graph) < 2:
+            return None
+        self.no_enqueue = 0
+        # Extended list
+        visited = {key: 0 for key in self.graph}
+        self.queue = [[0, self.start]]
+        Final_result = []
+        flag = 0
+        goal_path = []
+        while len(self.queue) != 0:
+            sub_list = []
+            current_path = self.queue.pop(0)
+            choosen_node = current_path[-1]
+            for child_node in self.graph[choosen_node].children.keys():
+                if child_node in current_path:
+                    continue
+                if visited[child_node] == 1:
+                    continue
+                else:
+                    visited[child_node] = 1
+                element = current_path + [child_node]
+                # Modify heuristic (Best First Search modification)
+                element[0] = self.graph[child_node].heuristics
+                priority_queue(self.queue, element)
+                sub_list.append(element)
+                self.no_enqueue += 1
+                if self.goal == child_node:
+                    flag = 1
+                    goal_path = element
+                    break
+            if len(sub_list) == 0:
+                continue
+            sub_list = sorted(sub_list)
+            sub_list2 = sub_list.copy()
+            for elem in sub_list2:
+                priority_queue(sub_list, elem)
+            Final_result.extend(sub_list)
+            if flag == 1:
+                break
+            print("-------------")
+        if flag != 1:
+            return None
+        index = Final_result.index(goal_path)
+        Final_result = Final_result[:index + 1]
+        print(Final_result)
+        return Final_result
+
 
     
 def priority_queue(queue, element):
@@ -541,3 +651,5 @@ def priority_queue(queue, element):
                     selected_index = i + 1
                 break
         queue.insert(selected_index, element)
+
+    
