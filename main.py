@@ -418,10 +418,14 @@ def algo_select(algo):
         document["paragh"].innerText = "Selected Branch and bound + Heuristics"
     elif algo == "astar":
         document["paragh"].innerText = "Selected A Star"
+    elif algo == "aostar":
+        document["paragh"].innerText = "Selected AO Star"
     elif algo == "ora":
         document["paragh"].innerText = "Selected Oracle search"
     elif algo == "ora_h":
         document["paragh"].innerText = "Selected Oracle + Heuristics search"
+    elif algo == "best":
+        document["paragh"].innerText = "Selected Best First Search"
     selected_algorithm = algo
 
 def saved_graph():
@@ -504,7 +508,7 @@ speed = 800
 
 agent = SearchAgent()
 map_algorithm = {'bfs' : agent.bfs, 'dfs' : agent.dfs ,'bms' : agent.bms , 'hc' : agent.hc \
-    ,'bs' : agent.bs, 'bb' : agent.bb, 'bb-l' : agent.bb_l, 'bb-h' : agent.bb_h, 'astar' : agent.a_star,'ora' : agent.ora,'ora_h' : agent.ora_h  }
+    ,'bs' : agent.bs, 'bb' : agent.bb, 'bb-l' : agent.bb_l, 'bb-h' : agent.bb_h, 'astar' : agent.a_star,'aostar' : agent.aostar,'ora' : agent.ora,'ora_h' : agent.ora_h, 'best' : agent.best  }
 
 
 # Selecting Tools
@@ -533,8 +537,10 @@ document['bb'].bind('click', lambda e: algo_select('bb'))
 document['bb-l'].bind('click', lambda e: algo_select('bb-l'))
 document['bb-h'].bind('click', lambda e: algo_select('bb-h'))
 document['astar'].bind('click', lambda e: algo_select('astar'))
+document['aostar'].bind('click', lambda e: algo_select('aostar'))
 document['ora'].bind('click', lambda e: algo_select('ora'))
 document['ora_h'].bind('click', lambda e: algo_select('ora_h'))
+document['best'].bind('click', lambda e: algo_select('best'))
 
 # To solve the graph
 document['solve'].bind('click', lambda e: solve(selected_algorithm))
