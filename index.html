@@ -36,8 +36,8 @@
       <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
       <div class="title-svg justify-content-center">
-        <svg width="1500" height="100">
-            <text x="50%" y="50%" dy=".35em" text-anchor="middle" font-size="24" >
+        <svg width="`00" height="100">
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle" font-size="24">
                 Algorithm Visualizer
             </text>
         </svg>
@@ -69,6 +69,9 @@
                     <a class="nav-link" href="#" id="astar">A Star Search</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="#" id="aostar">AO Star Search</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="#" id="hc">Hill Climbing Search</a>
                   </li>
                   <li class="nav-item">
@@ -83,8 +86,11 @@
                   <li class="nav-item">
                     <a class="nav-link" href="#" id="bb-h">Branch & Bound + Estimated Heuristics</a>
                   </li>
-                </ul>
-             
+               
+                <li class="nav-item">
+                  <a class="nav-link" href="#" id="best">Best First Search</a>
+                </li>
+              </ul>
               </div>
             </div>
           </nav>
@@ -116,23 +122,23 @@
           
       <div class="button-container">        
                   <button type="button" class="cyber-button-small bg-blue fg-white" id="nodeAdd">
-                    Add Node
+                    Create Node
                     <span class="glitchtext">Adding Node</span>
                   </button>
                      
               <button type="button" class="cyber-button-small bg-red fg-white" id="nodeDelete">
-                Del Node
+                Delete Node
                 <span class="glitchtext">Deleting Node</span>
               </button>
                
                 
               <button type="button" class="cyber-button-small bg-blue fg-white" id="edgeAdd">
-                Add Edge
+                Create Edge
                 <span class="glitchtext">Adding Edge</span>
               </button>
               
               <button type="button" class="cyber-button-small bg-red fg-white" id="edgeDelete">
-                Del Edge
+                Delete Edge
                 <span class="glitchtext">Deleting Edge</span>
               </button>
 
@@ -148,12 +154,12 @@
      
             
               <button  type="button" class="cyber-button-small bg-blue fg-white" id="setstart">
-                Start
+                Source Node
                 <span class="glitchtext">Source Node is set</span>
               </button>
   
                 <button type="button" class="cyber-button-small bg-red fg-white" id="setgoal">
-                  Goal
+                  Destination Node
                   <span class="glitchtext">Destination Node is set</span>
                 </button>
 
@@ -162,12 +168,13 @@
                   Solve
                    <span class="glitchtext">Solving</span>
                  </button>
-
-                <div class="select-div">
+                 
+                <div class="select-div1">
                     <select id="Select">
                         <option disabled selected>Saved Graph</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
+                        <option value="3">Three</option>
                     </select>
                 </div>
                 <div class="select-div">
@@ -193,13 +200,13 @@
             <div class="right-child" id="right">
                 <div class="canvas-container">
                     <!-- Manually set canvas dimensions -->
-                    <canvas id="canvas" width="2000" height="450"></canvas>
+                    <canvas id="canvas" width="2000" height="575"></canvas>
                 </div>
             </div>
             
-<a href="https://github.com/adithya-vedhamani" class="profile-link">
-    <img src="adiii.png" alt="HTML tutorial" class="profile-image">
-</a>
 
+            <a href="https://github.com/adithya-vedhamani" class="profile-link">
+              <img src="adiii.png" alt="HTML tutorial" class="profile-image">
+          </a>
           
 </html>
