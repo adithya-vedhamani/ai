@@ -152,9 +152,7 @@ class SearchAgent:
                 break
         if (flag == 0):
             return None
-        # print(self.goal)
-        # print(Final_result)
-        # print(goal_path)
+       
         index = Final_result.index(goal_path)
         Final_result = Final_result[:index+1]
         return Final_result
