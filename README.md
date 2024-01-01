@@ -1,1 +1,1 @@
-# ai
+# AI Search Algorithm Visualizer
