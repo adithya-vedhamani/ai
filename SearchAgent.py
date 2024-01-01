@@ -40,7 +40,7 @@ class SearchAgent:
         
     def bms(self):
         if self.goal == None or self.start == None or len(self.graph) < 2:
-            # Notify the user if the input is not valid
+  
             return None
         
         self.no_enqueue = 0
